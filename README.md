@@ -10,7 +10,7 @@ Durante el transcurso del año, el frontend de este proyecto se desarrolló comp
 ## 2. Enlace al Prototipo de Figma
 
 El diseño base de la interfaz está documentado en Figma.
-Enlace: [Pega acá tu enlace cuando lo tengas]
+Enlace: 
 
 ## 3. Tecnologías Utilizadas
 
