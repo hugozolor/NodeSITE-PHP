@@ -1,0 +1,65 @@
+<?php 
+$titulo_pagina = "Mapa Interactivo - NodeSite";
+$pagina_actual = "mapa";
+require_once '../includes/header.php'; 
+require_once '../includes/nav.php'; 
+?>
+
+<!-- MapLibre GL CSS -->
+<link href="https://unpkg.com/maplibre-gl@3.0.1/dist/maplibre-gl.css" rel="stylesheet" />
+
+<div class="map-viewport">
+  <div id="map-container"></div> 
+
+  <button class="fab-filter" onclick="toggleFiltro()">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+    </svg>
+  </button>
+
+  <div class="filter-side-panel" id="filterPanel">
+    
+    <div class="panel-header">
+      <div class="header-text">
+        <h3>Filtrar Reportes</h3>
+        <p>Selecciona una categoría para visualizar reportes específicos.</p>
+      </div>
+      <button class="close-btn" onclick="toggleFiltro()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <div class="panel-body">
+      <button class="filter-chip active" onclick="seleccionarCategoria('Todas', this)">
+        Ver Todas
+      </button>
+
+      <button class="filter-chip" onclick="seleccionarCategoria('Bache', this)">Bache</button>
+      <button class="filter-chip" onclick="seleccionarCategoria('Alumbrado', this)">Alumbrado</button>
+      <button class="filter-chip" onclick="seleccionarCategoria('Basura', this)">Basura</button>
+      <button class="filter-chip" onclick="seleccionarCategoria('Obra Vial', this)">Obra Vial</button>
+    </div>
+
+    <div class="panel-footer">
+      <h4>Acciones rápidas</h4>
+      <div class="action-buttons-container">
+        <a class="action-btn outline-btn" href="<?= BASE_URL ?>pages/resenas.php" style="text-decoration:none;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 14v-2.47l6.88-6.88c.2-.2.51-.2.71 0l1.77 1.77c.2.2.2.51 0 .71L8.47 14H6zm12 0h-7.5l2-2H18v2z"/></svg>
+          Reseñar
+        </a>
+
+        <a class="action-btn primary-btn" href="<?= BASE_URL ?>pages/publicar.php" style="text-decoration:none;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm4 8h-3v3h-2v-3H8V8h3V5h2v3h3v2z"/></svg>
+          Publicar
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MapLibre GL JS -->
+<script src="https://unpkg.com/maplibre-gl@3.0.1/dist/maplibre-gl.js"></script>
+<script src="<?= BASE_URL ?>public/js/pages/mapa.js?v=<?php echo time(); ?>"></script>
+
+<?php require_once '../includes/footer.php'; ?>

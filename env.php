@@ -1,0 +1,6 @@
+<?php
+define('BASE_URL', '/salta-location-php/');
+define('APP_ENV', 'local');
+define('APP_NAME', 'NodeSite');
+define('APP_EMAIL', 'soporte@nodesite.com');
+define('APP_AUTHOR', 'Jose');
